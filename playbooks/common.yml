@@ -1,0 +1,5 @@
+- name: Appliquer le rôle common à tous les hosts
+  hosts: all       #on lance pour tous les hosts lb & web    
+  become: true     #On lance avec sudo
+  roles:
+    - common

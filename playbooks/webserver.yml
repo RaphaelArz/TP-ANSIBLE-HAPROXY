@@ -1,0 +1,6 @@
+---
+- name: Déployer les webservers
+  hosts: web         # uniquement le groupe web de l’inventaire
+  become: true
+  roles:
+    - webserver

@@ -1,0 +1,23 @@
+---
+# Installer HAProxy
+- name: Installer HAProxy
+  apt:
+    name: haproxy
+    state: present
+    update_cache: yes
+
+# Copier la configuration HAProxy
+- name: Déployer la configuration HAProxy
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: '0644'
+  notify: restart haproxy
+
+# Activer et démarrer HAProxy
+- name: Activer et démarrer HAProxy
+  systemd:
+    name: haproxy
+    state: started
+    enabled: yes
+

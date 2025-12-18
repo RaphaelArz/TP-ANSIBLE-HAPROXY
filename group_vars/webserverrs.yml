@@ -1,0 +1,5 @@
+---
+web_server_package: nginx
+site_name: demo-site
+site_port: 80
+index_content_template: "Hello from {{ inventory_hostname }}"

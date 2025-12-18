@@ -1,0 +1,14 @@
+---
+# tasks file for webserver
+
+- name: Installer nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Déployer index.html personnalisé
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+
